@@ -1,32 +1,181 @@
-/* General body and layout styling */
+/* --- Modern Playful Tic-Tac-Toe Styles --- */
+
 body {
-  font-family: 'Arial', sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  height: 100vh;
+  font-family: 'Segoe UI', 'Arial', sans-serif;
+  min-height: 100vh;
   margin: 0;
-  background-color: #f5f5f5;
+  background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%);
+  transition: background 0.4s;
+}
+
+.container {
+  max-width: 430px;
+  margin: 40px auto;
+  box-shadow: 0 8px 32px rgba(60,60,120,0.10), 0 1.5px 8px rgba(60,60,120,0.08);
+  border-radius: 24px;
+  background: #fff;
+  padding: 2.5rem 2rem 2rem 2rem;
+  transition: background 0.4s, box-shadow 0.4s;
+}
+
+body.dark-mode {
+  background: linear-gradient(135deg, #232946 0%, #121629 100%);
+  color: #f4f4f4;
+}
+
+body.dark-mode .container {
+  background: #232946;
+  box-shadow: 0 8px 32px rgba(20,20,40,0.25), 0 1.5px 8px rgba(20,20,40,0.18);
 }
 
 h1 {
-  font-size: 3em;
-  margin-bottom: 20px;
-  color: #333;
+  font-size: 2.5em;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: #4f46e5;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 2px 8px #e0e7ff;
+}
+body.dark-mode h1 {
+  color: #a5b4fc;
+  text-shadow: 0 2px 8px #232946;
 }
 
-/* Styling for the game container */
-.game-container {
+#playerForm {
+  margin-bottom: 2rem;
+}
+.input-group {
+  gap: 0.5rem;
+}
+.form-control-lg {
+  border-radius: 16px;
+  border: 2px solid #a5b4fc;
+  font-size: 1.2em;
+  padding: 0.75rem 1.2rem;
+  background: #f1f5f9;
+  color: #232946;
+  box-shadow: 0 1px 4px #e0e7ff;
+  transition: border 0.2s, background 0.2s, color 0.2s;
+}
+.form-control-lg:focus {
+  border-color: #6366f1;
+  background: #fff;
+  color: #232946;
+}
+body.dark-mode .form-control-lg {
+  background: #232946;
+  color: #f4f4f4;
+  border: 2px solid #6366f1;
+  box-shadow: 0 1px 4px #232946;
+}
+body.dark-mode .form-control-lg:focus {
+  background: #232946;
+  color: #fff;
+  border-color: #a5b4fc;
+}
+
+.btn-lg {
+  border-radius: 16px;
+  font-size: 1.15em;
+  font-weight: 600;
+  padding: 0.75rem 2rem;
+  box-shadow: 0 2px 8px #e0e7ff;
+  background: linear-gradient(90deg, #6366f1 0%, #818cf8 100%);
+  border: none;
+  color: #fff;
+  transition: background 0.2s, box-shadow 0.2s, color 0.2s;
+}
+.btn-lg:hover, .btn-lg:focus {
+  background: linear-gradient(90deg, #4f46e5 0%, #6366f1 100%);
+  color: #fff;
+  box-shadow: 0 4px 16px #a5b4fc;
+}
+body.dark-mode .btn-lg {
+  background: linear-gradient(90deg, #232946 0%, #6366f1 100%);
+  color: #fff;
+  box-shadow: 0 2px 8px #232946;
+}
+body.dark-mode .btn-lg:hover, body.dark-mode .btn-lg:focus {
+  background: linear-gradient(90deg, #6366f1 0%, #232946 100%);
+  color: #fff;
+  box-shadow: 0 4px 16px #6366f1;
+}
+
+#darkModeToggle {
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  font-size: 1.5em;
+  background: #e0e7ff;
+  color: #6366f1;
+  border: none;
+  box-shadow: 0 1px 4px #e0e7ff;
+  transition: background 0.2s, color 0.2s;
+}
+#darkModeToggle:hover, #darkModeToggle:focus {
+  background: #6366f1;
+  color: #fff;
+}
+body.dark-mode #darkModeToggle {
+  background: #232946;
+  color: #a5b4fc;
+  box-shadow: 0 1px 4px #232946;
+}
+body.dark-mode #darkModeToggle:hover, body.dark-mode #darkModeToggle:focus {
+  background: #6366f1;
+  color: #fff;
+}
+
+#scoreBoard {
+  font-size: 1.15em;
   text-align: center;
+  margin-bottom: 1.5rem;
+  color: #232946;
+  background: #f1f5f9;
+  border-radius: 12px;
+  padding: 0.5rem 0;
+  box-shadow: 0 1px 4px #e0e7ff;
+}
+body.dark-mode #scoreBoard {
+  background: #232946;
+  color: #a5b4fc;
+  box-shadow: 0 1px 4px #232946;
+}
+#playerNameDisplay, .fw-bold {
+  font-weight: 700 !important;
+}
+.badge {
+  font-size: 1em;
+  border-radius: 8px;
+  padding: 0.4em 0.8em;
+  margin: 0 2px;
+  background: #6366f1;
+  color: #fff;
+  box-shadow: 0 1px 4px #e0e7ff;
+}
+body.dark-mode .badge {
+  background: #818cf8;
+  color: #232946;
+  box-shadow: 0 1px 4px #232946;
 }
 
 .board {
   display: grid;
   grid-template-columns: repeat(3, 100px);
   grid-template-rows: repeat(3, 100px);
-  gap: 5px;
-  margin-bottom: 20px;
+  gap: 12px;
+  margin-bottom: 24px;
+  justify-content: center;
+  background: #f1f5f9;
+  border-radius: 18px;
+  box-shadow: 0 2px 8px #e0e7ff;
+  padding: 18px 0;
+  transition: background 0.3s;
+}
+body.dark-mode .board {
+  background: #232946;
+  box-shadow: 0 2px 8px #232946;
 }
 
 .cell {
@@ -35,54 +184,74 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2em;
-  background-color: #fff;
-  border: 2px solid #333;
+  font-size: 2.5em;
+  font-weight: 700;
+  background: #fff;
+  border: 3px solid #a5b4fc;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: background 0.2s, color 0.2s, border 0.2s, box-shadow 0.2s;
+  border-radius: 16px;
+  user-select: none;
+  color: #232946;
+  box-shadow: 0 1px 4px #e0e7ff;
 }
-
 .cell:hover {
-  background-color: #f0f0f0;
+  background: #e0e7ff;
+  color: #4f46e5;
+  border-color: #6366f1;
+  box-shadow: 0 2px 8px #a5b4fc;
 }
-
-button {
-  padding: 10px 20px;
-  font-size: 1em;
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-  margin-top: 10px;
+body.dark-mode .cell {
+  background: #232946;
+  color: #a5b4fc;
+  border-color: #6366f1;
+  box-shadow: 0 1px 4px #232946;
 }
-
-button:hover {
-  background-color: #45a049;
+body.dark-mode .cell:hover {
+  background: #6366f1;
+  color: #fff;
+  border-color: #a5b4fc;
+  box-shadow: 0 2px 8px #6366f1;
 }
 
 .message {
-  font-size: 1.5em;
-  margin-top: 20px;
-  color: #333;
-  font-weight: bold;
+  font-size: 1.4em;
+  margin-top: 24px;
+  color: #4f46e5;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 1px;
+  text-shadow: 0 1px 4px #e0e7ff;
+}
+body.dark-mode .message {
+  color: #a5b4fc;
+  text-shadow: 0 1px 4px #232946;
 }
 
-/* Add some responsiveness */
-@media (max-width: 500px) {
+.restart.d-none, #scoreBoard.d-none {
+  display: none !important;
+}
+
+@media (max-width: 600px) {
+  .container {
+    max-width: 99vw;
+    border-radius: 0;
+    padding: 1.2rem 0.5rem 1.5rem 0.5rem;
+  }
   .board {
-    grid-template-columns: repeat(3, 80px);
-    grid-template-rows: repeat(3, 80px);
-    gap: 3px;
+    grid-template-columns: repeat(3, 70px);
+    grid-template-rows: repeat(3, 70px);
+    gap: 7px;
+    padding: 8px 0;
   }
-
   .cell {
-    width: 80px;
-    height: 80px;
+    width: 70px;
+    height: 70px;
     font-size: 1.5em;
+    border-radius: 10px;
   }
-
-  button {
-    padding: 8px 16px;
+  .btn-lg {
+    padding: 0.6rem 1.2rem;
+    font-size: 1em;
   }
 }
